@@ -141,11 +141,11 @@ namespace BetterBuoyancy
 
         private void ApplySplashEffect(double depth, Rigidbody body)
         {
-            if (depth > 1)
+            if ((depth > 1) || (Math.Abs(vessel.verticalSpeed) < 1))
                 return;
-
-            float mag = body.velocity.magnitude * 0.1f;
-            if(mag > 10)
+            
+			float mag = body.velocity.magnitude;
+			if(mag > 10)
                 FXMonger.Splash(part.transform.position, mag);
         }
 
