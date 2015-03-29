@@ -144,8 +144,8 @@ namespace BetterBuoyancy
             if ((depth > 1) || (Math.Abs(vessel.verticalSpeed) < 1))
                 return;
 
-            float mag = body.velocity.magnitude;
-            if(mag > 10)
+            float mag = body.velocity.magnitude * 0.1f;
+            if(mag > 1)
                 FXMonger.Splash(part.transform.position, mag);
         }
 
